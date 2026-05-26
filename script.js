@@ -170,8 +170,7 @@ function renderGrid() {
   grid.innerHTML = '';
 
   ITEMS.forEach(item => {
-    const inCart        = cart.some(l => l.id === item.id);
-    const isPresenteado = presenteados.includes(item.id);
+    const inCart = cart.some(l => l.id === item.id);
 
     const li = document.createElement('li');
     li.className = 'item-card';
@@ -189,10 +188,6 @@ function renderGrid() {
         <p class="item-card__price">${formatBRL(item.price)}</p>
         <button class="btn btn--primary item-card__btn">Presentear</button>
       </div>
-      ${isPresenteado ? `
-        <div class="item-card__presenteado-overlay">
-          <span class="item-card__presenteado-badge">✓ PRESENTEADO</span>
-        </div>` : ''}
     `;
 
     li.addEventListener('click', () => openItemModal(item));
